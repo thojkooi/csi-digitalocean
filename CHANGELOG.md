@@ -1,5 +1,8 @@
 ## unreleased
 
+* Update deprecated apiextensions and storage APIs to v1
+  [[GH-379]](https://github.com/digitalocean/csi-digitalocean/pull/379)
+
 ## v2.1.1 - 2020.10.30
 
 * Fix fstype usage
