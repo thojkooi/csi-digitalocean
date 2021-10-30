@@ -74,15 +74,6 @@ expand the filesystem if you have formatted the device.
 
 Snapshots can be created and restored through `VolumeSnapshot` objects.
 
----
-**Note:**
-
-Since version 2, the CSI plugin support v1beta1 Volume Snapshots only. Support for the v1alpha1 has been dropped.
-
-Users that want to migrate their v1alpha1 Volume Snapshots into a v1beta1 cluster can leverage [this migration tool](/cmd/migrate-snapshots). (For DOKS customers, the migration will be applied automatically during cluster upgrades.)
-
----
-
 See also [the example](/examples/kubernetes/snapshot).
 
 ### Volume Statistics
@@ -109,8 +100,10 @@ Kubernetes Release | DigitalOcean CSI Driver Version
 1.15               | v1.3.x
 1.16               | v1.3.x
 1.17               | v2 (v1.3.x with v1alpha1 snapshots only)
-1.18               | v2 (v1.3.x with v1alpha1 snapshots only)
-1.19               | v2 (v1.3.x with v1alpha1 snapshots only)
+1.18               | v2+ (v1.3.x with v1alpha1 snapshots only)
+1.19               | v2+ (v1.3.x with v1alpha1 snapshots only)
+1.20               | v2+ (v1.3.x with v1alpha1 snapshots only)
+1.21               | v2+ (v1.3.x with v1alpha1 snapshots only)
 
 ---
 **Note:**
@@ -118,6 +111,15 @@ Kubernetes Release | DigitalOcean CSI Driver Version
 The [DigitalOcean Kubernetes](https://www.digitalocean.com/products/kubernetes/) product comes with the CSI driver pre-installed and no further steps are required.
 
 ---
+
+#### Snapshot support
+
+Version 1 of the CSI driver supports v1alpha1 Volume Snapshots only.
+
+Version 2 of the CSI driver supports v1beta1 Volume Snapshots only.
+
+Version 3 of the CSI driver supports v1 Volume Snapshots, which is backwards compatible to v1beta1. However, version 3 renders snapshots unusable that had previously been marked as invalid. See the [csi-snapshotter](https://github.com/kubernetes-csi/external-snapshotter) documentation on the validating webhook and v1beta1 to v1 upgrade notes.
+
 **Driver modes:**
 
 By default, the driver supports both the [controller and node mode.](https://kubernetes-csi.github.io/docs/deploying.html)
